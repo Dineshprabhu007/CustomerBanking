@@ -112,7 +112,8 @@ namespace CustomerBanking
                         Console.WriteLine("1. Deposit");
                         Console.WriteLine("2. Withdraw");
                         Console.WriteLine("3. Check Balance");
-                        Console.WriteLine("4. Exit");
+                        Console.WriteLine("4. Check My Details");
+                        Console.WriteLine("5. Exit");
                         Console.WriteLine("Enter your choice:");
 
                         if (!int.TryParse(Console.ReadLine(), out int option))
@@ -162,6 +163,10 @@ namespace CustomerBanking
                                 break;
 
                             case 4:
+                                accountService.GetAccountDetails(existingCustomer);
+                                break;
+
+                            case 5:
                                 break;
 
                             default:
@@ -169,7 +174,7 @@ namespace CustomerBanking
                                 break;
                         }
 
-                        if (option == 4)
+                        if (option == 5)
                             break;
                     }
                 }

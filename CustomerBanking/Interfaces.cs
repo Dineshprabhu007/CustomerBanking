@@ -24,6 +24,7 @@ namespace CustomerBanking
         void Deposit(Customer customer, double amount);
         void Withdraw(Customer customer, double amount);
         void CheckBalance(Customer customer);
+        void GetAccountDetails(Customer customer);
     }
 
     public interface IUserInputValidations

@@ -43,6 +43,16 @@ namespace CustomerBanking
             }
             catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
         }
+
+        public void GetAccountDetails(Customer customer)
+        {
+            try
+            {
+                Console.WriteLine($" Account Number:{customer.AccountNumber} \n Name:{customer.Name} " +
+                    $"\n Mobile Number:{customer.MobileNumber} \n Date of Birth:{customer.DateOfBirth} \n Email:{customer.Email}");
+            }
+            catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
+        }
     }
 
 }
