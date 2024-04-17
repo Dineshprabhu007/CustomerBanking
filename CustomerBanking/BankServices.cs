@@ -92,7 +92,9 @@ namespace CustomerBanking
         {
             Console.WriteLine("Enter 10-digit mobile number:");
             string mobileNumber = Console.ReadLine();
-            Customer existingCustomer = customerService.FindCustomerByMobileNumber(mobileNumber);
+            Console.WriteLine("Enter 10-digit Account number");
+            string accountNumber = Console.ReadLine();
+            Customer existingCustomer = customerService.FindCustomerByMobileNumberAccountNumber(mobileNumber,accountNumber);
             if (existingCustomer != null)
             {
                 while (true)

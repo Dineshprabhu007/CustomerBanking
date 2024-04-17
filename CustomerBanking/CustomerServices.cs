@@ -22,11 +22,11 @@ namespace CustomerBanking
             Console.WriteLine("Customer added successfully!");
         }
 
-        public Customer FindCustomerByMobileNumber(string mobileNumber)
+        public Customer FindCustomerByMobileNumberAccountNumber(string mobileNumber,string accountNumber)
         {
             foreach (Customer customer in customers)
             {
-                if (customer != null && customer.MobileNumber.Equals(mobileNumber))
+                if (customer != null && customer.MobileNumber.Equals(mobileNumber) && customer.AccountNumber.Equals(accountNumber))
                 {
                     return customer;
                 }
