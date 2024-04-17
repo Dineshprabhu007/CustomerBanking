@@ -20,25 +20,33 @@ namespace CustomerBanking
         //}
         public bool IsNumeric(string value)
         {
-            foreach (char c in value)
+            try
             {
-                if (!char.IsDigit(c))
+                foreach (char c in value)
                 {
-                    return false;
+                    if (!char.IsDigit(c))
+                    {
+                        return false;
+                    }
                 }
             }
+            catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
             return true;
         }
 
         public bool IsCharacters(string value)
         {
-            foreach (char c in value)
+            try
             {
-                if (char.IsDigit(c))
+                foreach (char c in value)
                 {
-                    return false;
+                    if (char.IsDigit(c))
+                    {
+                        return false;
+                    }
                 }
             }
+            catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
             return true;
         }
 

@@ -10,26 +10,38 @@ namespace CustomerBanking
     {
         public void Deposit(Customer customer, double amount)
         {
-            customer.Balance += amount;
-            Console.WriteLine($"Deposited {amount}. New balance: {customer.Balance}");
+            try
+            {
+                customer.Balance += amount;
+                Console.WriteLine($"Deposited {amount}. New balance: {customer.Balance}");
+            }
+            catch(Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
         }
 
         public void Withdraw(Customer customer, double amount)
         {
-            if (amount <= customer.Balance)
+            try
             {
-                customer.Balance -= amount;
-                Console.WriteLine($"Withdrawn {amount}. New balance: {customer.Balance}");
+                if (amount <= customer.Balance)
+                {
+                    customer.Balance -= amount;
+                    Console.WriteLine($"Withdrawn {amount}. New balance: {customer.Balance}");
+                }
+                else
+                {
+                    Console.WriteLine("Insufficient balance");
+                }
             }
-            else
-            {
-                Console.WriteLine("Insufficient balance");
-            }
+            catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
         }
 
         public void CheckBalance(Customer customer)
         {
-            Console.WriteLine($"Balance for {customer.Name}: {customer.Balance}");
+            try
+            {
+                Console.WriteLine($"Balance for {customer.Name}: {customer.Balance}");
+            }
+            catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
         }
     }
 

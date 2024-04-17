@@ -12,37 +12,54 @@ namespace CustomerBanking
        
         public CustomerService()
         {
-            customers = new List<Customer>();
-            
+            try
+            {
+                customers = new List<Customer>();
+            }
+            catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
+
         }
 
         public void AddCustomer(string accountNumber, string name, double initialDeposit, string mobileNumber, DateTime dob, string email)
         {
-            customers.Add( new Customer(accountNumber, name, initialDeposit, mobileNumber, dob, email));
-            Console.WriteLine("Customer added successfully!");
+            try
+            {
+                customers.Add(new Customer(accountNumber, name, initialDeposit, mobileNumber, dob, email));
+                Console.WriteLine("Customer added successfully!");
+            }
+            catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
         }
 
         public Customer FindCustomerByMobileNumberAccountNumber(string mobileNumber,string accountNumber)
         {
-            foreach (Customer customer in customers)
+            try
             {
-                if (customer != null && customer.MobileNumber.Equals(mobileNumber) && customer.AccountNumber.Equals(accountNumber))
+                foreach (Customer customer in customers)
                 {
-                    return customer;
+                    if (customer != null && customer.MobileNumber.Equals(mobileNumber) && customer.AccountNumber.Equals(accountNumber))
+                    {
+                        return customer;
+                    }
                 }
             }
+            catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
             return null;
+
         }
         public bool VerifyExistingAccount(string accountNumber) 
         {
-            foreach(Customer customer in customers) 
+            try
             {
-                if(customer.AccountNumber.Equals(accountNumber)) 
-                { 
-                    return true;
+                foreach (Customer customer in customers)
+                {
+                    if (customer.AccountNumber.Equals(accountNumber))
+                    {
+                        return true;
+                    }
+                    continue;
                 }
-                continue;
             }
+            catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
             return false;
         }
         //public List<Customer> GetExistingAccountDetails()
