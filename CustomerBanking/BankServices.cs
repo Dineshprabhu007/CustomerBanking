@@ -47,6 +47,9 @@ namespace CustomerBanking
                 {
                     Console.WriteLine("Name should not contain numeric characters");
                     return;
+                }else if(string.IsNullOrEmpty(name)) 
+                {
+                    Console.WriteLine("Name should not be empty"); return;
                 }
 
                 Console.WriteLine("Enter initial deposit amount:");
@@ -59,6 +62,11 @@ namespace CustomerBanking
                 if (initialDeposit < 0)
                 {
                     Console.WriteLine("Initial deposit amount cannot be negative.");
+                    return;
+                }
+                if(initialDeposit > 100000)
+                {
+                    Console.WriteLine("Maximum Deposit Limit for your is 100000 at once.Try split deposit");
                     return;
                 }
 
@@ -139,6 +147,11 @@ namespace CustomerBanking
                                     Console.WriteLine("Deposit amount cannot be negative.");
                                     continue;
                                 }
+                                if(depositAmount>100000)
+                                {
+                                    Console.WriteLine("Maximum deposit limit is 100000.Try Split deposit");
+                                    continue;
+                                }
 
                                 accountService.Deposit(existingCustomer, depositAmount);
                                 break;
@@ -155,6 +168,10 @@ namespace CustomerBanking
                                 {
                                     Console.WriteLine("Withdrawal amount cannot be negative.");
                                     continue;
+                                }
+                                if(withdrawAmount>50000)
+                                {
+                                    Console.WriteLine("Maximum Limit is 50000");
                                 }
 
                                 accountService.Withdraw(existingCustomer, withdrawAmount);

@@ -12,8 +12,31 @@ namespace CustomerBanking
         {
             try
             {
-                customer.Balance += amount;
-                Console.WriteLine($"Deposited {amount}. New balance: {customer.Balance}");
+                if((customer.Balance+amount)>500000)
+                {
+                    double extra = customer.Balance + amount - 500000.0d;
+                    Console.WriteLine($" You can able to deposit only {amount-extra}.Are you going to deposit select\n YES \n NO ");
+                    string status= Console.ReadLine();
+                    status=status.ToLower();
+                    if(status.Equals("yes"))
+                    {
+                        customer.Balance+= (amount-extra);
+                        Console.WriteLine($"Deposited {amount-extra}. New balance: {customer.Balance}");
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    customer.Balance +=amount;
+                    Console.WriteLine($"Deposited {amount}. New balance: {customer.Balance}");
+                    return;
+                }
+                
+                
             }
             catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }
         }
