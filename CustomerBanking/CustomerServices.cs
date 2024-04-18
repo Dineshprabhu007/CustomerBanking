@@ -20,11 +20,11 @@ namespace CustomerBanking
 
         }
 
-        public void AddCustomer(string accountNumber, string name, double initialDeposit, string mobileNumber, DateTime dob, string email)
+        public void AddCustomer(Customer customer)
         {
             try
             {
-                customers.Add(new Customer(accountNumber, name, initialDeposit, mobileNumber, dob, email));
+                customers.Add((customer));
                 Console.WriteLine("Customer added successfully!");
             }
             catch (Exception ex) { Console.WriteLine($"An error occured:{ex.Message}"); }

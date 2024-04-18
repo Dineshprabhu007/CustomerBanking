@@ -8,21 +8,21 @@ namespace CustomerBanking
 {
     public class Customer
     {
-        public string AccountNumber { get; }
-        public string Name { get; }
+        public string AccountNumber { get; set; }
+        public string Name { get; set; }
         public double Balance { get; set; }
-        public string MobileNumber { get; }
-        public DateTime DateOfBirth { get; }
-        public string Email { get; }
+        public string MobileNumber { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Email { get; set; }
 
-        public Customer(string accountNumber, string name, double initialDeposit, string mobileNumber, DateTime dob, string email)
-        {
-            this.AccountNumber = accountNumber;
-            this.Name = name;
-            this.Balance = initialDeposit;
-            this.MobileNumber = mobileNumber;
-            this.DateOfBirth = dob;
-            this.Email = email;
-        }
+        //public Customer(string accountNumber, string name, double initialDeposit, string mobileNumber, DateTime dob, string email)
+        //{
+        //    this.AccountNumber = accountNumber;
+        //    this.Name = name;
+        //    this.Balance = initialDeposit;
+        //    this.MobileNumber = mobileNumber;
+        //    this.DateOfBirth = dob;
+        //    this.Email = email;
+        //}
     }
 }

@@ -95,9 +95,9 @@ namespace CustomerBanking
                     return;
                 }
 
+                Customer newCustomer = new Customer() {AccountNumber=accountNumber,Name=name,Balance=initialDeposit,MobileNumber=mobileNumber,DateOfBirth=dob,Email=email };
 
-
-                customerService.AddCustomer(accountNumber, name, initialDeposit, mobileNumber, dob, email);
+                customerService.AddCustomer(newCustomer);
             }
             catch(Exception ex)
             {

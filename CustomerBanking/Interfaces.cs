@@ -14,7 +14,7 @@ namespace CustomerBanking
 
     public interface ICustomerService
     {
-        void AddCustomer(string accountNumber, string name, double initialDeposit, string mobileNumber, DateTime dob, string email);
+        void AddCustomer(Customer customer);
         Customer FindCustomerByMobileNumberAccountNumber(string mobileNumber,string accountNumber);
         bool VerifyExistingAccount(string accountNumber);
     }
