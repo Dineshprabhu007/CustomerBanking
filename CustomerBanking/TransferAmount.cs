@@ -43,12 +43,19 @@ namespace CustomerBanking
                     Console.WriteLine(" Transfer amount cannot be negative.");
                     return;
                 }
+                if(transferAmount >50000.0d)
+                {
+                    Console.WriteLine("We can't transfer amount higher than 50000 in UPI");
+                    return;
+                }
 
                 if (transferAmount > customer.Balance)
                 {
                     Console.WriteLine("Insufficient funds");
                     return;
                 }
+
+                
                 Console.WriteLine($"Amount:{transferAmount} has been successfully sent to {UPI}");
                 customer.Balance -= transferAmount;
                 return;
@@ -100,6 +107,12 @@ namespace CustomerBanking
                 if (transferAmount < 0)
                 {
                     Console.WriteLine(" Transfer amount cannot be negative.");
+                    return;
+                }
+
+                if (transferAmount > 100000.0d)
+                {
+                    Console.WriteLine("We can't transfer amount higher than 100000 in Bank Transfer");
                     return;
                 }
 
