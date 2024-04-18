@@ -12,14 +12,15 @@ namespace CustomerBanking
         private readonly ICustomerService customerService;
         private readonly IAccountService accountService;
         private readonly IUserInputValidations userInputValidations;
-       
+        public  ITransferAmount transferAmount;
+
 
         public BankService()
         {
             customerService = new CustomerService();
             accountService = new AccountService();
             userInputValidations = new UserInputValidations();
-
+            transferAmount = new TransferAmount();
 
         }
 
@@ -113,7 +114,8 @@ namespace CustomerBanking
                         Console.WriteLine("2. Withdraw");
                         Console.WriteLine("3. Check Balance");
                         Console.WriteLine("4. Check My Details");
-                        Console.WriteLine("5. Exit");
+                        Console.WriteLine("5. TransferAmount");
+                        Console.WriteLine("6. Exit");
                         Console.WriteLine("Enter your choice:");
 
                         if (!int.TryParse(Console.ReadLine(), out int option))
@@ -167,6 +169,10 @@ namespace CustomerBanking
                                 break;
 
                             case 5:
+                                accountService.transferAmount(existingCustomer,transferAmount);
+                                break;
+
+                            case 6:
                                 break;
 
                             default:
@@ -174,7 +180,7 @@ namespace CustomerBanking
                                 break;
                         }
 
-                        if (option == 5)
+                        if (option == 6)
                             break;
                     }
                 }

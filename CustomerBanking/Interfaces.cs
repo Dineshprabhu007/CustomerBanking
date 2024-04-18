@@ -25,6 +25,8 @@ namespace CustomerBanking
         void Withdraw(Customer customer, double amount);
         void CheckBalance(Customer customer);
         void GetAccountDetails(Customer customer);
+        void transferAmount(Customer customer,ITransferAmount transferAmount);
+        
     }
 
     public interface IUserInputValidations
@@ -36,5 +38,11 @@ namespace CustomerBanking
          bool EmailValidation(string value);
 
 
+    }
+    public interface ITransferAmount
+    {
+        void UPI(Customer customer);
+        void BankTransfer(Customer customer);
+       
     }
 }

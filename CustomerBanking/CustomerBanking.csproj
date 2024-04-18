@@ -50,6 +50,7 @@
     <Compile Include="Interfaces.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransferAmount.cs" />
     <Compile Include="UserInputValidation.cs" />
   </ItemGroup>
   <ItemGroup>
